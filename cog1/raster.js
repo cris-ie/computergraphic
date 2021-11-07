@@ -129,11 +129,43 @@ function(exports, shader, framebuffer, data) {
 
 		// BEGIN exercise Bresenham
 		// Comment out the next two lines.
-		drawLine(startX, startY, endX, endY, color);
-		return;
+		//drawLine(startX, startY, endX, endY, color);
+		//return;
 
 		// Skip it, if the line is just a point.
+		if (startX === endX && startY === endY && startZ === endZ)
+		{return;}
 
+		var x0 = startX;
+		var y0 = startY;
+
+		if (Math.abs(dX) >= Math.abs(dY) ) {
+		var e = Math.abs(dX)- 2* Math.abs(dY); 	
+		while (x0 != endX){
+			framebuffer.set(x0, y0, getZ(x0, y0), color);
+			x0 +=  dXSign;
+			if (e > 0) {
+				e = e - 2* Math.abs(dY);
+			}
+			else {
+				y0 += dXSign
+				e = e + 2*(Math.abs(dX) - Math.abs(dY));
+			}
+		}}
+		else {
+			var e = Math.abs(dY) - 2* Math.abs(dX);
+			while (y0 != endY){
+				framebuffer.set(x0, y0, getZ(x0, y0), color);
+				y0 += dYSign;
+				if (e > 0) {
+					e = e - 2* Math.abs(dX);
+				}
+				else {
+					x0 += dXSign
+					e = e + 2*(Math.abs(dY) - Math.abs(dX));
+				}
+			}
+		}
 
 		// Optionally draw start point as is the same
 		// as the end point of the previous edge.
