@@ -25,7 +25,7 @@ function(exports, scenegraph, animation) {
 	//	keyNode.rotateTo([1.6, -3.87, 0]);
 		// END exercise myModel
 		
-		var insideOutPolyNode = scenegraph.createNodeWithModel("insideOutPoly", "insideOutPoly");
+		var insideOutPolyNode = scenegraph.createNodeWithModel("cube", "cube");
 		return;
 
 		//var cubeNode = scenegraph.createNodeWithModel("cube", "cube", {scale:100, textureURL:"brickWall.jpg"});		
