@@ -21,11 +21,11 @@ function(exports, scenegraph, animation) {
 		//cubeNode.rotateTo([1.6, -3.87, 0]);
 
 		// BEGIN exercise myModel
-		//var keyNode = scenegraph.createNodeWithModel("myModel", "myModel", {scale:60});
-	//	keyNode.rotateTo([1.6, -3.87, 0]);
+		var keyNode = scenegraph.createNodeWithModel("myModel", "myModel", {scale:60});
+		keyNode.rotateTo([1.6, -3.87, 0]);
 		// END exercise myModel
 		
-		var insideOutPolyNode = scenegraph.createNodeWithModel("cube", "cube");
+		// var insideOutPolyNode = scenegraph.createNodeWithModel("myModel", "myModel");
 		return;
 
 		//var cubeNode = scenegraph.createNodeWithModel("cube", "cube", {scale:100, textureURL:"brickWall.jpg"});		
