@@ -141,37 +141,16 @@
          // as the end point of the previous edge.
          // In any case, do not add an intersection for start point here,
          // this should happen later in the scanline function.
-
-         // logging
-         //console.log("Delta values for x:" + dX + " y:" + dY);
-         //console.log("Start/End Points (x,y)" + startX + "," + startY + " / " + endX + "," + endY);
-
-         // Distinction of cases for driving variable.
-         // using absolute values for this distinction (dXAbs/dyAbs)
          if (dXAbs >= dYAbs) {
-             // x is driving variable
-
-             //descision variable e
              e = dXAbs - 2 * dYAbs;
-
-             //logging
-             //console.log("x is driving variable");
-             //console.log("descision variable e = " + e);
-
-             // loop until x(n) not x(end)
              while(x != endX){
                  x = x + dXSign;
 
                  if (e > 0) {
-                     //descision variable e > 0
                      e = e - 2*dYAbs;
-
                  } else {
-                     //descision variable e < 0
                      y = y + dYSign;
                      e = e + 2*(dXAbs - dYAbs);
-
-                     //add intersection
                      if(storeIntersectionForScanlineFill && y != endY) {
                          addIntersection(x, y);
                      }
@@ -181,42 +160,25 @@
                  if(startY != endY || startX != endX){
                      framebuffer.set(x, y, getZ(x, y), color);
                  }
-             } // x == endX
+             }
          } else {
-             // y is driving variable
-
-             //descision variable e
              e = dYAbs - 2 * dXAbs;
-
-             //logging
-             //console.log("y is driving variable");
-             //console.log("descision variable e = " + e);
-
-             // loop until y(n) not y(end)
              while(y != endY){
                  y = y + dYSign;
 
                  if (e > 0) {
-                     //descision variable e > 0
                      e = e - 2*dXAbs;
                  } else {
-                     //descision variable e < 0
                      x = x + dXSign;
                      e = e + 2*(dYAbs - dXAbs);
                  }
-                 // Add every intersection as there can be only one per scan line.
-                 // but not the end point, which is done in scanline.
-                 framebuffer.set(x, y, getZ(x, y), color);
-
-                 //add intersection
-                 //always when y is driving variable (y always increases)
+                 // Add every intersection as there can be only one per scan line..
+                 framebuffer.set(x, y, getZ(x, y), color);)
                  if(storeIntersectionForScanlineFill && y != endY) {
                      addIntersection(x, y);
                  }
 
-             } // Y == endY
-         } //end of loop
-
+             }
          // END exercise Bresenham
          return;
      };
@@ -263,7 +225,6 @@
          // Maybe skip polygons that are perpendicular to the screen / xy-plane.
          // The plane calculation can be commented out if bi-linear interpolation is applied.
          if(! calcPlaneEquation(vertices, polygon)) {
-             //console.log("Skip plane(polygon) is perpendicular to the screen / xy-plane, color: " + color.name);
              return;
          }
 
