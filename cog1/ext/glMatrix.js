@@ -1457,7 +1457,18 @@ mat4.str = function(mat) {
 		', '+ mat[8] + ', ' + mat[9] + ', ' + mat[10] + ', ' + mat[11] + 
 		', '+ mat[12] + ', ' + mat[13] + ', ' + mat[14] + ', ' + mat[15] + ']';
 };
+mat4.shear = function(shear, vec) {
+    var x = vec[0], y = vec[1], z = vec[2];
 
+    shear[1] = x;
+    shear[2] = x;
+    shear[4] = y;
+    shear[6] = y;
+    shear[8] = z;
+    shear[9] = z;
+
+    return shear;
+};
 /*
  * quat4 - Quaternions 
  */
