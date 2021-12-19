@@ -173,7 +173,7 @@
                      e = e + 2*(dYAbs - dXAbs);
                  }
                  // Add every intersection as there can be only one per scan line..
-                 framebuffer.set(x, y, getZ(x, y), color);)
+                 framebuffer.set(x, y, getZ(x, y), color);
                  if(storeIntersectionForScanlineFill && y != endY) {
                      addIntersection(x, y);
                  }
@@ -182,7 +182,7 @@
          // END exercise Bresenham
          return;
      };
-
+    }
      /**
       * Draw edges of given polygon. See also scanlineFillPolygon().
       *
@@ -240,11 +240,7 @@
 
          // For the start edge we need the last edge with derivative !=0,
          for (i; i >= 0; i--) {
-
-             //derivative == 0
              if (derivative == 0) {
-
-                 //determine startPoint, nextIndex and endPoint
                  startPoint = vertices[polygon[i]];
                  nextIndex = (i < polygon.length - 1) ? i + 1 : 0;
                  endPoint = vertices[polygon[nextIndex]];
@@ -256,8 +252,6 @@
 
                  // Pre-calculate the derivatives for last edge !=0 of polygon.
                  derivative = calcDerivative(currY, nextY);
-
-                 //set current as last derivative
                  lastDerivative = derivative;
              }
          }
@@ -289,19 +283,15 @@
              // Set texture coordinate uv-vector/array of the current edge for later interpolation.
 
              // Calculate current and save last derivative.
-             //console.log("derivative:" + derivative + " lastDerivative " + lastDerivative);
              lastDerivative = derivative;
              derivative = calcDerivative(currY, nextY);
 
              // Skip horizontal edges.
              if (derivative != 0) {
-
-                 //drawLineBresenham
                  drawLineBresenham(currX, currY, currZ, nextX, nextY, nextZ, color, true);
 
                  // Add end point of non horizontal edges.
                  addIntersection(nextX, nextY);
-                 //console.log("Add end point:" + nextX + ", " + nextY);
 
                  // Last derivative has to exist, always, also for the first edge.
 
