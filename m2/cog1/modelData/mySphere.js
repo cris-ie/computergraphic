@@ -60,17 +60,17 @@
                     // side 2
                     if(x == num-1){
                         let vec1 = [x+1 ,y ,z];
-                        let vec2 = [x+1 ,y ,z+1];
+                        let vec2 = [x+1 ,y+1 ,z];
                         let vec3 = [x+1 ,y+1 ,z+1];
-                        let vec4 = [x+1 ,y+1 ,z];
+                        let vec4 = [x+1 ,y ,z+1];
                         add_quad(vec1, vec2, vec3, vec4);
                     }
                     // side 3
                     if(y == - num){
                         let vec1 = [x ,y ,z];
-                        let vec2 = [x ,y ,z+1];
+                        let vec2 = [x+1 ,y ,z];
                         let vec3 = [x+1 ,y ,z+1];
-                        let vec4 = [x+1 ,y ,z];
+                        let vec4 = [x ,y ,z+1];
                         add_quad(vec1, vec2, vec3, vec4);
                     }
                     // side 4
@@ -91,10 +91,10 @@
                     }
                     // side 6
                     if(z == num-1){
-                        let vec1 = [x+1 ,y ,z+1];
-                        let vec2 = [x+1 ,y+1 ,z+1];
-                        let vec3 = [x ,y+1 ,z+1];
-                        let vec4 = [x ,y ,z+1];
+                        let vec1 = [x ,y ,z+1];
+                        let vec2 = [x+1 ,y ,z+1];
+                        let vec3 = [x+1 ,y+1 ,z+1];
+                        let vec4 = [x ,y+1 ,z+1];
                         add_quad(vec1, vec2, vec3, vec4);
                     }
                 }
